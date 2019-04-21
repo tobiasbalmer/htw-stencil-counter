@@ -1,0 +1,44 @@
+:host {
+    display: inline-block;
+    --primary-color: #59A5D8;
+    --accent-color: #fff;
+}
+
+.click-counter {
+    background-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    text-align: center;
+    &__number {
+        font-size: 40px;
+        padding: 30px;
+        color: var(--accent-color);
+        font-family: sans-serif;
+    }
+    &__actions {
+        display: flex;
+        border-top: 1px solid var(--accent-color);
+        border-bottom: 1px solid var(--accent-color);
+    }
+    &__substract, &__add {
+        flex: 1;
+        padding: 15px 30px;
+        color: var(--accent-color);
+        background-color: transparent;
+        border: none;
+        font-size: 26px;
+    }
+    &__substract {
+        border-right: 1px solid var(--accent-color);
+    }
+    &__add {
+    }
+    &__reset {
+        padding: 10px 15px;
+        color: var(--accent-color);
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border: none;
+        background-color: transparent;
+    }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Stencil Component Starter</title>
+  <script src="/build/clickcounter.js"></script>
+  <style>
+    .red {
+      --primary-color: #ff463c;
+      --accent-color: #ffedec;
+    }
+    .green {
+      --primary-color: #a2ad00;
+      --accent-color: #f6f7e6;
+    }
+  </style>
+</head>
+<body>
+  <div style="margin-bottom: 30px;">
+    <your-counter></your-counter>
+  </div>
+  <div>
+      <click-counter startnumber="30" step="5" min="10" max="100"></click-counter>
+      <click-counter class="red" startnumber="30" step="5" min="10" max="100"></click-counter>
+      <click-counter class="green"></click-counter>
+  </div>
+</body>
+</html>
