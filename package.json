@@ -1,8 +1,8 @@
 {
   "name": "htw-stencil-counter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Stencil clickcounter webcomponent for HTW students",
-  "module": "dist/index.mjs",  
+  "module": "dist/index.mjs",
   "main": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
   "es2017": "dist/esm/index.mjs",
