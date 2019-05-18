@@ -5,7 +5,7 @@ export const config: Config = {
   namespace: 'clickcounter',
   outputTargets:[
     { type: 'dist' },
-    { type: 'docs' },
+    { type: 'docs-readme' },
     {
       type: 'www',
       serviceWorker: null // disable service workers

@@ -5,40 +5,47 @@
  */
 
 
-import '@stencil/core';
-
-
+import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
+import { JSX } from '@stencil/core';
 
 
 export namespace Components {
-
   interface ClickCounter {
     'max': any;
     'min': any;
     'startnumber': any;
     'step': any;
   }
-  interface ClickCounterAttributes extends StencilHTMLAttributes {
+  interface YourCounter {}
+}
+
+declare namespace LocalJSX {
+  interface ClickCounter extends JSXBase.HTMLAttributes {
     'max'?: any;
     'min'?: any;
     'startnumber'?: any;
     'step'?: any;
   }
+  interface YourCounter extends JSXBase.HTMLAttributes {}
 
-  interface YourCounter {}
-  interface YourCounterAttributes extends StencilHTMLAttributes {}
+  interface IntrinsicElements {
+    'click-counter': ClickCounter;
+    'your-counter': YourCounter;
+  }
 }
 
-declare global {
-  interface StencilElementInterfaces {
-    'ClickCounter': Components.ClickCounter;
-    'YourCounter': Components.YourCounter;
-  }
+export { LocalJSX as JSX };
 
-  interface StencilIntrinsicElements {
-    'click-counter': Components.ClickCounterAttributes;
-    'your-counter': Components.YourCounterAttributes;
+
+declare module "@stencil/core" {
+  export namespace JSX {
+    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
   }
+}
+
+
+declare global {
+
 
 
   interface HTMLClickCounterElement extends Components.ClickCounter, HTMLStencilElement {}
@@ -54,22 +61,10 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
-    'click-counter': HTMLClickCounterElement
-    'your-counter': HTMLYourCounterElement
-  }
-
-  interface ElementTagNameMap {
     'click-counter': HTMLClickCounterElement;
     'your-counter': HTMLYourCounterElement;
   }
 
-
-  export namespace JSX {
-    export interface Element {}
-    export interface IntrinsicElements extends StencilIntrinsicElements {
-      [tagName: string]: any;
-    }
-  }
-  export interface HTMLAttributes extends StencilHTMLAttributes {}
-
+  interface ElementTagNameMap extends HTMLElementTagNameMap {}
 }
+
